@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "swiggyLogo.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
