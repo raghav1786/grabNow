@@ -10,6 +10,8 @@ class TopOffersViewController: UIViewController {
         super.viewDidLoad()
         myTableView.delegate = self
         myTableView.dataSource = self
+        let cellNib = UINib(nibName: "OffersTableViewCell", bundle: nil)
+        myTableView.register(cellNib, forCellReuseIdentifier: "OffersTableViewCell")
     }
 }
 
@@ -29,10 +31,21 @@ extension TopOffersViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "OffersTableViewCell")
-        if cell == nil {
-            cell = OffersTableViewCell.customCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OffersTableViewCell") as? OffersTableViewCell else {
+            return UITableViewCell()
         }
-        return cell!
+        cell.delegateOfferDetails = self
+        return cell
+    }
+}
+
+
+extension TopOffersViewController: segueHandlingCell {
+    func openOfferDetailsPage() {
+        let storyboardName = "Main"
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let offerDetailsViewController = storyboard.instantiateViewController(withIdentifier: "OfferDetailsViewController")
+        offerDetailsViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        present(offerDetailsViewController, animated: true, completion: nil)
     }
 }

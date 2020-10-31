@@ -3,11 +3,7 @@ import UIKit
 
 class OffersTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
     @IBOutlet weak var myCollectionView: UICollectionView!
-    
-    class var customCell : OffersTableViewCell {
-        let cell = Bundle.main.loadNibNamed("OffersTableViewCell", owner: self, options: nil)?.last
-        return cell as! OffersTableViewCell
-    }
+    var delegateOfferDetails : segueHandlingCell?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,4 +27,12 @@ class OffersTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OfferCollectionViewCell", for: indexPath)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegateOfferDetails?.openOfferDetailsPage()
+    }
+}
+
+protocol segueHandlingCell {
+    func openOfferDetailsPage()
 }
