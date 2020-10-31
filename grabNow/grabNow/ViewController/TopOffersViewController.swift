@@ -4,14 +4,23 @@ import Foundation
 
 class TopOffersViewController: UIViewController {
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var imageViewIcon: UIImageView!
     
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
         myTableView.delegate = self
         myTableView.dataSource = self
         let cellNib = UINib(nibName: "OffersTableViewCell", bundle: nil)
         myTableView.register(cellNib, forCellReuseIdentifier: "OffersTableViewCell")
+        addingCornerViews()
+    }
+    
+    func addingCornerViews() {
+        headerView.layer.cornerRadius = 20.0
+        imageViewIcon.layer.cornerRadius = 8.0
     }
 }
 
@@ -46,6 +55,6 @@ extension TopOffersViewController: segueHandlingCell {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         let offerDetailsViewController = storyboard.instantiateViewController(withIdentifier: "OfferDetailsViewController")
         offerDetailsViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        present(offerDetailsViewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(offerDetailsViewController, animated: true)
     }
 }

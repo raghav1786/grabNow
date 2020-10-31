@@ -27,17 +27,17 @@
                                 <rect key="frame" x="10" y="10" width="61" height="31"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmyshowLogo" translatesAutoresizingMaskIntoConstraints="NO" id="b9v-qR-dif">
-                                        <rect key="frame" x="0.0" y="0.0" width="61" height="31"/>
+                                        <rect key="frame" x="2.5" y="2.5" width="56" height="26"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="QNc-w1-xai"/>
-                                    <constraint firstAttribute="trailing" secondItem="b9v-qR-dif" secondAttribute="trailing" id="Tlj-TD-O8d"/>
-                                    <constraint firstItem="b9v-qR-dif" firstAttribute="top" secondItem="h5q-9R-ny2" secondAttribute="top" id="rhf-iq-V3y"/>
-                                    <constraint firstItem="b9v-qR-dif" firstAttribute="leading" secondItem="h5q-9R-ny2" secondAttribute="leading" id="vQ4-Y8-abg"/>
+                                    <constraint firstAttribute="trailing" secondItem="b9v-qR-dif" secondAttribute="trailing" constant="2.5" id="Tlj-TD-O8d"/>
+                                    <constraint firstItem="b9v-qR-dif" firstAttribute="top" secondItem="h5q-9R-ny2" secondAttribute="top" constant="2.5" id="rhf-iq-V3y"/>
+                                    <constraint firstItem="b9v-qR-dif" firstAttribute="leading" secondItem="h5q-9R-ny2" secondAttribute="leading" constant="2.5" id="vQ4-Y8-abg"/>
                                     <constraint firstAttribute="height" constant="31" id="vUb-j5-9A0"/>
-                                    <constraint firstAttribute="bottom" secondItem="b9v-qR-dif" secondAttribute="bottom" id="x3i-dW-s5s"/>
+                                    <constraint firstAttribute="bottom" secondItem="b9v-qR-dif" secondAttribute="bottom" constant="2.5" id="x3i-dW-s5s"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJp-fh-obu">
@@ -96,6 +96,11 @@
                 <constraint firstItem="76i-Ow-I5S" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uP7-eC-kLb"/>
             </constraints>
             <size key="customSize" width="134" height="205"/>
+            <connections>
+                <outlet property="logoView" destination="h5q-9R-ny2" id="3bw-Rc-xwA"/>
+                <outlet property="outerView" destination="E1V-mu-Qct" id="Efw-12-h7y"/>
+                <outlet property="percentView" destination="tJp-fh-obu" id="U46-di-xAD"/>
+            </connections>
             <point key="canvasLocation" x="-286.95652173913044" y="137.61160714285714"/>
         </collectionViewCell>
     </objects>
