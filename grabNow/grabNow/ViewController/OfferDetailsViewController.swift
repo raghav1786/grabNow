@@ -1,6 +1,5 @@
 
 import UIKit
-
 class OfferDetailsViewController: UIViewController {
     //MARK: Outlets
     @IBOutlet private weak var outerView: UIImageView!
@@ -15,6 +14,9 @@ class OfferDetailsViewController: UIViewController {
     @IBOutlet private weak var validTill: UILabel!
     @IBOutlet private weak var expiringButton: UIView!
     @IBOutlet private weak var sellerType: UILabel!
+    @IBOutlet private weak var shareButton: UIView!
+    @IBOutlet private weak var copyButton: UIView!
+    @IBOutlet private weak var backButton: UIButton!
     
     //MARK: Properties
     var viewModel : OfferDetailsViewModel?
@@ -25,10 +27,11 @@ class OfferDetailsViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         addingCornerViews()
         configureData()
+        animateDetails()
     }
     
     @IBAction private func backButtonClicked(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: false)
     }
     
     @IBAction private func copyButtonClicked(_ sender: Any) {
@@ -45,6 +48,18 @@ class OfferDetailsViewController: UIViewController {
         present(ac, animated: true)
     }
     
+    private func animateDetails() {
+        UIView.animate(withDuration: 0.3) {
+            self.logoView.center.x += 100
+            self.expiringButton.center.x -= 100
+            self.voucherCode.center.x += 100
+            self.voucherDesc.center.x += 100
+            self.validTill.center.x += 100
+            self.sellerType.center.x += 100
+            self.discountTitle.center.x += 100
+            self.discountDesc.center.x += 100
+        }
+    }
     
     private func configureData() {
         voucherCode.text = viewModel?.offer?.voucherCode ?? ""

@@ -21,6 +21,18 @@ class TopOffersViewController: UIViewController {
         registerCell()
         viewModel?.getOffers()
         myTableView?.reloadData()
+        animateTableView()
+    }
+    
+    private func animateTableView() {
+        let animator = UIViewPropertyAnimator(
+            duration: 0.3,
+            curve: .easeIn) { [self] in
+            self.myTableView.center.x += 150
+            self.headerView.center.x += 150
+        }
+        
+        animator.startAnimation()
     }
     
     private func configureTableView() {
@@ -73,7 +85,6 @@ extension TopOffersViewController: CollectionItemClick {
         guard let offerDetailsViewController = storyboard.instantiateViewController(withIdentifier: Constants.offerDetailsVC) as? OfferDetailsViewController else { return }
         let offerDetailsViewModel = OfferDetailsViewModel(offerItem: offerItem)
         offerDetailsViewController.viewModel = offerDetailsViewModel
-        offerDetailsViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.navigationController?.pushViewController(offerDetailsViewController, animated: true)
+        self.navigationController?.pushViewController(offerDetailsViewController, animated: false)
     }
 }
