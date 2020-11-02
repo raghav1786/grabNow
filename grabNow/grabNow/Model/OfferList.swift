@@ -2,14 +2,14 @@
 import Foundation
 
 struct OfferList: Decodable {
-    var data:  [[Items]]
+    var data:  [[Offer]]
     
     enum CodingKeys: String,CodingKey {
         case data
     }
 }
 
-struct Items : Decodable {
+struct Offer : Decodable {
     var voucherCode: String
     var voucherDesc: String
     var discountTitle: String

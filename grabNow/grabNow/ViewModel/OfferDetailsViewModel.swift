@@ -1,8 +1,8 @@
 
 import Foundation
 struct OfferDetailsViewModel {
-    var offer : Items?
-    init(offerItem: Items) {
+    var offer : Offer?
+    init(offerItem: Offer) {
         offer = offerItem
     }
 }

@@ -2,21 +2,24 @@
 import UIKit
 
 class OfferDetailsViewController: UIViewController {
-    @IBOutlet weak var outerView: UIImageView!
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var expireView: UIView!
-    @IBOutlet weak var logoView: UIView!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var voucherCode: UILabel!
-    @IBOutlet weak var voucherDesc: UILabel!
-    @IBOutlet weak var discountTitle: UILabel!
-    @IBOutlet weak var discountDesc: UILabel!
-    @IBOutlet weak var validTill: UILabel!
-    @IBOutlet weak var expiringButton: UIView!
-    @IBOutlet weak var sellerType: UILabel!
+    //MARK: Outlets
+    @IBOutlet private weak var outerView: UIImageView!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var expireView: UIView!
+    @IBOutlet private weak var logoView: UIView!
+    @IBOutlet private weak var logoImageView: UIImageView!
+    @IBOutlet private weak var voucherCode: UILabel!
+    @IBOutlet private weak var voucherDesc: UILabel!
+    @IBOutlet private weak var discountTitle: UILabel!
+    @IBOutlet private weak var discountDesc: UILabel!
+    @IBOutlet private weak var validTill: UILabel!
+    @IBOutlet private weak var expiringButton: UIView!
+    @IBOutlet private weak var sellerType: UILabel!
     
+    //MARK: Properties
     var viewModel : OfferDetailsViewModel?
     
+    //MARK: Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
@@ -24,25 +27,26 @@ class OfferDetailsViewController: UIViewController {
         configureData()
     }
     
-    @IBAction func backButtonClicked(_ sender: Any) {
+    @IBAction private func backButtonClicked(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func copyButtonClicked(_ sender: Any) {
+    @IBAction private func copyButtonClicked(_ sender: Any) {
         let pasteboard = UIPasteboard.general
         pasteboard.string = viewModel?.offer?.voucherCode ?? ""
-        self.showToast(message: "copied to clipboard", font: UIFont.systemFont(ofSize: 15.0))
+        self.showToast(message: Constants.toastClipBoard,
+                       font: UIFont.systemFont(ofSize: 15.0))
     }
     
     
-    @IBAction func shareButtonClicked(_ sender: Any) {
+    @IBAction private func shareButtonClicked(_ sender: Any) {
         let items = [voucherCode.text]
         let ac = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
         present(ac, animated: true)
     }
     
     
-    func configureData() {
+    private func configureData() {
         voucherCode.text = viewModel?.offer?.voucherCode ?? ""
         voucherDesc.text = viewModel?.offer?.voucherDesc ?? ""
         discountTitle.text = viewModel?.offer?.discountTitle ?? ""
@@ -56,7 +60,7 @@ class OfferDetailsViewController: UIViewController {
     }
     
     
-    func addingCornerViews() {
+    private func addingCornerViews() {
         containerView.layer.cornerRadius = 40.0
         outerView.layer.cornerRadius = 40.0
         expireView.layer.cornerRadius = 10.0

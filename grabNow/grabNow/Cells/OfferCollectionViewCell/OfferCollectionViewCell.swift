@@ -2,15 +2,20 @@
 import UIKit
 
 class OfferCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var outerView: UIView!
-    @IBOutlet weak var outerImageView: UIImageView!
-    @IBOutlet weak var logoView: UIView!
-    @IBOutlet weak var percentView: UIView!
-    @IBOutlet weak var discountLabel: UILabel!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var offLabel: UILabel!
-    var offer: Items?
+    //MARK: Outlets
+    @IBOutlet private weak var outerView: UIView!
+    @IBOutlet private weak var outerImageView: UIImageView!
+    @IBOutlet private weak var logoView: UIView!
+    @IBOutlet private weak var percentView: UIView!
+    @IBOutlet private weak var discountLabel: UILabel!
+    @IBOutlet private weak var logoImageView: UIImageView!
+    @IBOutlet private weak var offLabel: UILabel!
     
+    //MARK: Properties
+    var offer: Offer?
+    
+    
+    //MARK: Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         addingCornerViews()
@@ -21,13 +26,13 @@ class OfferCollectionViewCell: UICollectionViewCell {
         configureCell()
     }
     
-    func addingCornerViews() {
+    private func addingCornerViews() {
         outerView.layer.cornerRadius = 12.0
         percentView.layer.cornerRadius = 10.0
         logoView.layer.cornerRadius = 6.0
     }
     
-    func configureCell() {
+    private func configureCell() {
         let discountArray = offer?.discount.split(separator: " ")
         discountLabel.text = String(discountArray?.first ?? "")
         offLabel.text = String(discountArray?.last ?? "")

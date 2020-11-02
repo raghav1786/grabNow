@@ -1,11 +1,10 @@
 
 import Foundation
 struct TopOffersViewModel {
-    var offerList = [[Items]]()
-    var networkManager = NetworkManager()
+    var offerList = [[Offer]]()
     
     mutating func getOffers() {
-        guard let offerData = networkManager.getOffersList() else {
+        guard let offerData = NetworkManager.shared.getOffersList() else {
             return
         }
         offerList = offerData
