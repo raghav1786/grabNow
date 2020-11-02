@@ -18,6 +18,8 @@ class TopOffersViewController: UIViewController {
         let cellNib = UINib(nibName: "OffersTableViewCell", bundle: nil)
         myTableView.register(cellNib, forCellReuseIdentifier: "OffersTableViewCell")
         addingCornerViews()
+        viewModel?.getOffers()
+        myTableView?.reloadData()
     }
     
     func addingCornerViews() {
@@ -34,7 +36,7 @@ extension TopOffersViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.offerList?.count ?? 0
+        return viewModel?.offerList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->  CGFloat {
@@ -46,16 +48,21 @@ extension TopOffersViewController: UITableViewDataSource,UITableViewDelegate {
             return UITableViewCell()
         }
         cell.delegateOfferDetails = self
+        
+        cell.rowItems = viewModel?.offerList[indexPath.row]
         return cell
     }
 }
 
 
 extension TopOffersViewController: segueHandlingCell {
-    func openOfferDetailsPage() {
+    func openOfferDetailsPage(offer: Items?) {
+        guard let offerItem = offer else { return }
         let storyboardName = "Main"
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let offerDetailsViewController = storyboard.instantiateViewController(withIdentifier: "OfferDetailsViewController")
+        guard let offerDetailsViewController = storyboard.instantiateViewController(withIdentifier: "OfferDetailsViewController") as? OfferDetailsViewController else { return }
+        let offerDetailsViewModel = OfferDetailsViewModel(offerItem: offerItem)
+        offerDetailsViewController.viewModel = offerDetailsViewModel
         offerDetailsViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         self.navigationController?.pushViewController(offerDetailsViewController, animated: true)
     }

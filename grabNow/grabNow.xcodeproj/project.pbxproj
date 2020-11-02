@@ -23,6 +23,7 @@
 		0E789C80254FCD5C009602CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E789C7F254FCD5C009602CA /* NetworkManager.swift */; };
 		0E789C83254FCE67009602CA /* OfferList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E789C82254FCE67009602CA /* OfferList.swift */; };
 		0E789C87254FD31A009602CA /* MockOffers.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E789C86254FD31A009602CA /* MockOffers.json */; };
+		0E789C8B254FE32B009602CA /* SellerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E789C8A254FE32B009602CA /* SellerType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		0E789C7F254FCD5C009602CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0E789C82254FCE67009602CA /* OfferList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferList.swift; sourceTree = "<group>"; };
 		0E789C86254FD31A009602CA /* MockOffers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockOffers.json; sourceTree = "<group>"; };
+		0E789C8A254FE32B009602CA /* SellerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				0E789C82254FCE67009602CA /* OfferList.swift */,
+				0E789C8A254FE32B009602CA /* SellerType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				0E789C83254FCE67009602CA /* OfferList.swift in Sources */,
 				0E1C82DE254D256800C22608 /* AppDelegate.swift in Sources */,
 				0E1C82FC254D274300C22608 /* OfferDetailsViewModel.swift in Sources */,
+				0E789C8B254FE32B009602CA /* SellerType.swift in Sources */,
 				0E1C8312254D3C4A00C22608 /* OfferCollectionViewCell.swift in Sources */,
 				0E1C8305254D3A0700C22608 /* OffersTableViewCell.swift in Sources */,
 				0E1C82E0254D256800C22608 /* SceneDelegate.swift in Sources */,

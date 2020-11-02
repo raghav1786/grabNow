@@ -41,19 +41,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJp-fh-obu">
-                                <rect key="frame" x="10" y="143" width="62" height="52"/>
+                                <rect key="frame" x="10" y="143" width="54.5" height="52"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jbv-f1-f0k">
-                                        <rect key="frame" x="8" y="8" width="46" height="36"/>
+                                        <rect key="frame" x="8" y="8" width="38.5" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ds-CU-EuD">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="38.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0y-Gs-8Hi">
-                                                <rect key="frame" x="0.0" y="21.5" width="46" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="21.5" width="38.5" height="14.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -69,7 +69,6 @@
                                     <constraint firstAttribute="bottom" secondItem="Jbv-f1-f0k" secondAttribute="bottom" constant="8" id="Ijp-A5-LHk"/>
                                     <constraint firstItem="Jbv-f1-f0k" firstAttribute="leading" secondItem="tJp-fh-obu" secondAttribute="leading" constant="8" id="ozl-5p-fOE"/>
                                     <constraint firstAttribute="trailing" secondItem="Jbv-f1-f0k" secondAttribute="trailing" constant="8" id="sca-oZ-OdC"/>
-                                    <constraint firstAttribute="width" constant="62" id="xS7-7G-6NH"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -97,7 +96,10 @@
             </constraints>
             <size key="customSize" width="134" height="205"/>
             <connections>
+                <outlet property="discountLabel" destination="0Ds-CU-EuD" id="QJf-aG-aXV"/>
+                <outlet property="logoImageView" destination="b9v-qR-dif" id="yTt-qn-97c"/>
                 <outlet property="logoView" destination="h5q-9R-ny2" id="3bw-Rc-xwA"/>
+                <outlet property="offLabel" destination="n0y-Gs-8Hi" id="OFb-1N-LvW"/>
                 <outlet property="outerView" destination="E1V-mu-Qct" id="Efw-12-h7y"/>
                 <outlet property="percentView" destination="tJp-fh-obu" id="U46-di-xAD"/>
             </connections>
