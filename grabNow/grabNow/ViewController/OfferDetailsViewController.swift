@@ -1,6 +1,5 @@
 
 import UIKit
-
 class OfferDetailsViewController: UIViewController {
     //MARK: Outlets
     @IBOutlet private weak var outerView: UIImageView!

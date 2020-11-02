@@ -27,10 +27,11 @@ class TopOffersViewController: UIViewController {
     private func animateTableView() {
         let animator = UIViewPropertyAnimator(
             duration: 0.3,
-            curve: .easeInOut) { [self] in
-            self.headerView.center.x += 100
-            self.myTableView.center.x += 100
+            curve: .easeIn) { [self] in
+            self.myTableView.center.x += 150
+            self.headerView.center.x += 150
         }
+        
         animator.startAnimation()
     }
     
