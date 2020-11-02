@@ -7,9 +7,11 @@ class TopOffersViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var imageViewIcon: UIImageView!
     
+    var viewModel: TopOffersViewModel?
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = TopOffersViewModel()
         navigationController?.navigationBar.isHidden = true
         myTableView.delegate = self
         myTableView.dataSource = self
@@ -32,7 +34,7 @@ extension TopOffersViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel?.offerList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->  CGFloat {
