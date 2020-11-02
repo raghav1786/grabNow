@@ -296,7 +296,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="55o-kn-4qF" id="tK7-pK-4iR"/>
                         <outlet property="containerView" destination="rJF-SW-iW1" id="5Yy-Yf-w5F"/>
+                        <outlet property="copyButton" destination="XwN-9g-wT5" id="0yk-yF-nHr"/>
                         <outlet property="discountDesc" destination="uw5-Qa-yRK" id="Wkn-xD-lNG"/>
                         <outlet property="discountTitle" destination="igN-fk-HoX" id="2Fx-iu-r7a"/>
                         <outlet property="expireView" destination="okH-Gb-pPU" id="K6O-a8-2bW"/>
@@ -305,6 +307,7 @@
                         <outlet property="logoView" destination="N5K-bD-WpD" id="p6L-yH-hag"/>
                         <outlet property="outerView" destination="KTJ-m3-oc4" id="mN7-ki-PWI"/>
                         <outlet property="sellerType" destination="mgV-1M-zRv" id="GD1-l2-euA"/>
+                        <outlet property="shareButton" destination="5cC-MW-V7g" id="orz-yT-RtK"/>
                         <outlet property="validTill" destination="Sod-YV-1qp" id="tuz-cR-4wG"/>
                         <outlet property="voucherCode" destination="OVx-7N-ebw" id="AA4-xr-c14"/>
                         <outlet property="voucherDesc" destination="ZFk-fY-T0Q" id="O2B-wQ-CcY"/>
