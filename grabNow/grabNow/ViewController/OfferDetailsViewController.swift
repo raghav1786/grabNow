@@ -2,7 +2,8 @@
 import UIKit
 
 class OfferDetailsViewController: UIViewController {
-    @IBOutlet weak var outerView: UIView!
+    @IBOutlet weak var outerView: UIImageView!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var expireView: UIView!
     @IBOutlet weak var logoView: UIView!
     @IBOutlet weak var logoImageView: UIImageView!
@@ -28,27 +29,35 @@ class OfferDetailsViewController: UIViewController {
     }
     
     @IBAction func copyButtonClicked(_ sender: Any) {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = viewModel?.offer?.voucherCode ?? ""
+        self.showToast(message: "copied to clipboard", font: UIFont.systemFont(ofSize: 15.0))
     }
     
     
     @IBAction func shareButtonClicked(_ sender: Any) {
+        let items = [voucherCode.text]
+        let ac = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
+        present(ac, animated: true)
     }
     
     
     func configureData() {
-        voucherCode.text = viewModel?.offer?.seller ?? ""
+        voucherCode.text = viewModel?.offer?.voucherCode ?? ""
         voucherDesc.text = viewModel?.offer?.voucherDesc ?? ""
         discountTitle.text = viewModel?.offer?.discountTitle ?? ""
         discountDesc.text = viewModel?.offer?.discountDesc ?? ""
         validTill.text = viewModel?.offer?.validTill ?? ""
-        sellerType.text = viewModel?.offer?.voucherCode ?? ""
+        sellerType.text = viewModel?.offer?.seller ?? ""
         expiringButton.isHidden = !(viewModel?.offer?.isExpiringSoon ?? false)
         let seller = viewModel?.offer?.seller ?? ""
         switch seller {
         case SellerType.swiggy.rawValue:
             logoImageView.image = UIImage(named: "swiggyLogo")
+            outerView.image = UIImage(named: "food")
         case SellerType.bms.rawValue:
             logoImageView.image = UIImage(named: "bookmyshowLogo")
+            outerView.image = UIImage(named: "joker")
         default:
             print()
         }
@@ -56,7 +65,8 @@ class OfferDetailsViewController: UIViewController {
     
     
     func addingCornerViews() {
-        outerView.layer.cornerRadius = 30.0
+        containerView.layer.cornerRadius = 40.0
+        outerView.layer.cornerRadius = 40.0
         expireView.layer.cornerRadius = 10.0
         logoView.layer.cornerRadius = 10.0
     }

@@ -3,6 +3,7 @@ import UIKit
 
 class OfferCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var outerView: UIView!
+    @IBOutlet weak var outerImageView: UIImageView!
     @IBOutlet weak var logoView: UIView!
     @IBOutlet weak var percentView: UIView!
     @IBOutlet weak var discountLabel: UILabel!
@@ -34,8 +35,10 @@ class OfferCollectionViewCell: UICollectionViewCell {
         switch seller {
         case SellerType.swiggy.rawValue:
             logoImageView.image = UIImage(named: "swiggyLogo")
+            outerImageView.image = UIImage(named: "food")
         case SellerType.bms.rawValue:
             logoImageView.image = UIImage(named: "bookmyshowLogo")
+            outerImageView.image = UIImage(named: "joker")
         default:
             print()
         }
