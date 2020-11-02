@@ -3,15 +3,39 @@ import UIKit
 import Foundation
 
 class TopOffersViewController: UIViewController {
-    @IBOutlet weak var myTableView: UITableView!
+    //MARK: Outlets
+    @IBOutlet private weak var myTableView: UITableView!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var imageViewIcon: UIImageView!
     
-    //MARK: Lifecycle
+    //MARK: Properties
+    private var viewModel: TopOffersViewModel?
+    
+    //MARK: Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = TopOffersViewModel()
+        navigationController?.navigationBar.isHidden = true
+        addingCornerViews()
+        configureTableView()
+        registerCell()
+        viewModel?.getOffers()
+        myTableView?.reloadData()
+    }
+    
+    private func configureTableView() {
         myTableView.delegate = self
         myTableView.dataSource = self
-        let cellNib = UINib(nibName: "OffersTableViewCell", bundle: nil)
-        myTableView.register(cellNib, forCellReuseIdentifier: "OffersTableViewCell")
+    }
+    
+    private func registerCell() {
+        let cellNib = UINib(nibName: Constants.offerTableViewCell, bundle: nil)
+        myTableView.register(cellNib, forCellReuseIdentifier: Constants.offerTableViewCell)
+    }
+    
+    private func addingCornerViews() {
+        headerView.layer.cornerRadius = 20.0
+        imageViewIcon.layer.cornerRadius = 8.0
     }
 }
 
@@ -23,7 +47,7 @@ extension TopOffersViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel?.offerList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->  CGFloat {
@@ -31,21 +55,25 @@ extension TopOffersViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OffersTableViewCell") as? OffersTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.offerTableViewCell) as? OffersTableViewCell else {
             return UITableViewCell()
         }
         cell.delegateOfferDetails = self
+        
+        cell.rowItems = viewModel?.offerList[indexPath.row]
         return cell
     }
 }
 
 
-extension TopOffersViewController: segueHandlingCell {
-    func openOfferDetailsPage() {
-        let storyboardName = "Main"
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let offerDetailsViewController = storyboard.instantiateViewController(withIdentifier: "OfferDetailsViewController")
+extension TopOffersViewController: CollectionItemClick {
+    internal func openOfferDetailsPage(offer: Offer?) {
+        guard let offerItem = offer else { return }
+        let storyboard = UIStoryboard(name: Constants.mainStoryboard, bundle: nil)
+        guard let offerDetailsViewController = storyboard.instantiateViewController(withIdentifier: Constants.offerDetailsVC) as? OfferDetailsViewController else { return }
+        let offerDetailsViewModel = OfferDetailsViewModel(offerItem: offerItem)
+        offerDetailsViewController.viewModel = offerDetailsViewModel
         offerDetailsViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        present(offerDetailsViewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(offerDetailsViewController, animated: true)
     }
 }
