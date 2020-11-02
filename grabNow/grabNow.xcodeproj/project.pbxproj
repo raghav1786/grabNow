@@ -21,6 +21,7 @@
 		0E1C8312254D3C4A00C22608 /* OfferCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1C8310254D3C4A00C22608 /* OfferCollectionViewCell.swift */; };
 		0E1C8313254D3C4A00C22608 /* OfferCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E1C8311254D3C4A00C22608 /* OfferCollectionViewCell.xib */; };
 		0E63ABCA255016170030CE55 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E63ABC9255016170030CE55 /* UIViewController+extension.swift */; };
+		0E63ABCF25502B7C0030CE55 /* SellerTypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E63ABCE25502B7C0030CE55 /* SellerTypeHelper.swift */; };
 		0E789C80254FCD5C009602CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E789C7F254FCD5C009602CA /* NetworkManager.swift */; };
 		0E789C83254FCE67009602CA /* OfferList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E789C82254FCE67009602CA /* OfferList.swift */; };
 		0E789C87254FD31A009602CA /* MockOffers.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E789C86254FD31A009602CA /* MockOffers.json */; };
@@ -44,6 +45,7 @@
 		0E1C8310254D3C4A00C22608 /* OfferCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCollectionViewCell.swift; sourceTree = "<group>"; };
 		0E1C8311254D3C4A00C22608 /* OfferCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferCollectionViewCell.xib; sourceTree = "<group>"; };
 		0E63ABC9255016170030CE55 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
+		0E63ABCE25502B7C0030CE55 /* SellerTypeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerTypeHelper.swift; sourceTree = "<group>"; };
 		0E789C7F254FCD5C009602CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0E789C82254FCE67009602CA /* OfferList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferList.swift; sourceTree = "<group>"; };
 		0E789C86254FD31A009602CA /* MockOffers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockOffers.json; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		0E1C82DC254D256800C22608 /* grabNow */ = {
 			isa = PBXGroup;
 			children = (
+				0E63ABCD25502B440030CE55 /* Helper */,
 				0E63ABC8255016000030CE55 /* Extensions */,
 				0E789C85254FD2F4009602CA /* MockData */,
 				0E1C8302254D393300C22608 /* Cells */,
@@ -157,6 +160,14 @@
 				0E63ABC9255016170030CE55 /* UIViewController+extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0E63ABCD25502B440030CE55 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0E63ABCE25502B7C0030CE55 /* SellerTypeHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		0E789C85254FD2F4009602CA /* MockData */ = {
@@ -249,6 +260,7 @@
 				0E1C8312254D3C4A00C22608 /* OfferCollectionViewCell.swift in Sources */,
 				0E1C8305254D3A0700C22608 /* OffersTableViewCell.swift in Sources */,
 				0E63ABCA255016170030CE55 /* UIViewController+extension.swift in Sources */,
+				0E63ABCF25502B7C0030CE55 /* SellerTypeHelper.swift in Sources */,
 				0E1C82E0254D256800C22608 /* SceneDelegate.swift in Sources */,
 				0E1C82F3254D26C700C22608 /* TopOffersViewController.swift in Sources */,
 				0E1C82F6254D26E000C22608 /* OfferDetailsViewController.swift in Sources */,

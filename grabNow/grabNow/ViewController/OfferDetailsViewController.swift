@@ -50,17 +50,9 @@ class OfferDetailsViewController: UIViewController {
         validTill.text = viewModel?.offer?.validTill ?? ""
         sellerType.text = viewModel?.offer?.seller ?? ""
         expiringButton.isHidden = !(viewModel?.offer?.isExpiringSoon ?? false)
-        let seller = viewModel?.offer?.seller ?? ""
-        switch seller {
-        case SellerType.swiggy.rawValue:
-            logoImageView.image = UIImage(named: "swiggyLogo")
-            outerView.image = UIImage(named: "food")
-        case SellerType.bms.rawValue:
-            logoImageView.image = UIImage(named: "bookmyshowLogo")
-            outerView.image = UIImage(named: "joker")
-        default:
-            print()
-        }
+        let images = getSellerLogoImages(seller: viewModel?.offer?.seller ?? "")
+        logoImageView.image = images.0
+        outerView.image = images.1
     }
     
     

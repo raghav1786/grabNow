@@ -31,16 +31,8 @@ class OfferCollectionViewCell: UICollectionViewCell {
         let discountArray = offer?.discount.split(separator: " ")
         discountLabel.text = String(discountArray?.first ?? "")
         offLabel.text = String(discountArray?.last ?? "")
-        let seller = offer?.seller ?? ""
-        switch seller {
-        case SellerType.swiggy.rawValue:
-            logoImageView.image = UIImage(named: "swiggyLogo")
-            outerImageView.image = UIImage(named: "food")
-        case SellerType.bms.rawValue:
-            logoImageView.image = UIImage(named: "bookmyshowLogo")
-            outerImageView.image = UIImage(named: "joker")
-        default:
-            print()
-        }
+        let images = getSellerLogoImages(seller: offer?.seller ?? "")
+        logoImageView.image = images.0
+        outerImageView.image = images.1
     }
 }
