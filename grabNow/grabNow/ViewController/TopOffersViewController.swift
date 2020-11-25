@@ -20,6 +20,7 @@ class TopOffersViewController: UIViewController {
         configureTableView()
         registerCell()
         viewModel?.getOffers()
+        myTableView?.estimatedRowHeight = UITableView.automaticDimension
         myTableView?.reloadData()
         animateTableView()
     }
@@ -63,7 +64,7 @@ extension TopOffersViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->  CGFloat {
-        return 250
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

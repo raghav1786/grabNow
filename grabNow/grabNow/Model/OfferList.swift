@@ -9,7 +9,7 @@ struct OfferList: Decodable {
     }
 }
 
-struct Offer : Decodable {
+struct Offer : Decodable,Hashable {
     var voucherCode: String
     var voucherDesc: String
     var discountTitle: String
