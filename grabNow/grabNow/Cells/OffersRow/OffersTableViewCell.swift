@@ -27,6 +27,7 @@ class OffersTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         myCollectionView.collectionViewLayout = flowLayout
         myCollectionView.dataSource = self
         myCollectionView.delegate = self
+        myCollectionView.sizeToFit()
     }
     
     private func registerCell() {
