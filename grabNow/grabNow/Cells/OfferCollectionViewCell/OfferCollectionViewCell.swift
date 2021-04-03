@@ -16,10 +16,6 @@ class OfferCollectionViewCell: UICollectionViewCell {
     
     
     //MARK: Methods
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        addingCornerViews()
-    }
     
     override func layoutSubviews() {
         addingCornerViews()

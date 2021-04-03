@@ -1,7 +1,7 @@
 
 import UIKit
 
-protocol CollectionItemClick {
+protocol CollectionItemClick: class {
     func openOfferDetailsPage(offer: Offer?)
 }
 
@@ -10,12 +10,12 @@ class OffersTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var myCollectionView: UICollectionView!
     
     //MARK: Properties
-    var delegateOfferDetails : CollectionItemClick?
+    weak var delegateOfferDetails : CollectionItemClick?
     var rowItems: [Offer]?
     
     //MARK: Methods
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func layoutSubviews() {
+        super.layoutSubviews()
         setLayoutCollectionView()
         registerCell()
     }
