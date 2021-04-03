@@ -1,5 +1,5 @@
 # grabNow
-This application provides list of offers you can use for various applications like swiggy, BookMyShow
+This application provides list of coupensyou can use for various applications like swiggy, BookMyShow
 
 
 
