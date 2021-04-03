@@ -1,9 +1,9 @@
 
 import Foundation
-struct TopOffersViewModel {
+class TopOffersViewModel {
     var offerList = [[Offer]]()
     
-    mutating func getOffers() {
+    func getOffers() {
         guard let offerData = NetworkManager.shared.getOffersList() else {
             return
         }

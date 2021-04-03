@@ -63,10 +63,6 @@ extension TopOffersViewController: UITableViewDataSource,UITableViewDelegate {
         return viewModel?.offerList.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->  CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.offerTableViewCell) as? OffersTableViewCell else {
             return UITableViewCell()
